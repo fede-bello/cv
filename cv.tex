@@ -3,10 +3,10 @@
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=2 cm, % seperation between body and page edge from the top
+    top=1.2 cm, % seperation between body and page edge from the top
     bottom=2 cm, % seperation between body and page edge from the bottom
-    left=2 cm, % seperation between body and page edge from the left
-    right=2 cm, % seperation between body and page edge from the right
+    left=1.8 cm, % seperation between body and page edge from the left
+    right=1.8 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
     % showframe % for debugging 
 ]{geometry} % for adjusting page geometry
@@ -55,9 +55,6 @@
 \setlength{\columnsep}{0.15cm} % set column seperation
 \makeatletter
 \let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
-\patchcmd{\ps@customFooterStyle}{\thepage}{
-    \color{gray}\textit{\small Federico Bello - Page \thepage{} of \pageref*{LastPage}}
-}{}{} % replace number by desired string
 \makeatother
 \pagestyle{customFooterStyle}
 
@@ -124,7 +121,7 @@
 \newenvironment{twocolentry}[2][]{
     \onecolentry
     \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
+    \setcolumnwidth{\fill, 4 cm}
     \begin{paracol}{2}
 }{
     \switchcolumn \raggedleft \secondColumn
@@ -172,340 +169,141 @@
         \vspace{0.3 cm}
 
         \small
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Montevideo, Uruguay}%
-        \kern 0.15 cm%
-        \AND%
-        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{mailto:fe.debello13@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}fe.debello13@gmail.com}}%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \AND%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \mbox{\hrefWithoutArrow{tel:+59891658041}{{\footnotesize\faPhone*}\hspace*{0.13cm}+598 91 658 041}}%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \AND%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \mbox{\hrefWithoutArrow{https://fedebello.com/}{{\footnotesize\faLink}\hspace*{0.13cm}fedebello.com}}%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \AND%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \mbox{\hrefWithoutArrow{https://linkedin.com/in/federico-bello-}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}federico-bello-}}%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \AND%
-        \kern 0.15 cm%
+        \kern 0.2 cm%
         \mbox{\hrefWithoutArrow{https://github.com/fede-bello}{{\footnotesize\faGithub}\hspace*{0.13cm}fede-bello}}%
     \end{header}
 
-    \vspace{0.3 cm - 0.3 cm}
 
 
     \section{Summary}
-        \begin{onecolentry}
-            Machine Learning Engineer at Tryolabs focused on building and deploying production ML systems. Telecommunications Systems Engineer (UdelaR) specialized in signal processing and information theory, with experience teaching programming and researching DNA storage in the Information Theory Group. I enjoy creating practical, reliable end-to-end ML solutions, drawing on strong foundations in signal processing, data modeling, and backend development.
-        \end{onecolentry}
+\begin{onecolentry}
+    I am a Telecommunications Systems Engineer (UdelaR) specialized in signal processing. I currently work as a Machine Learning Engineer at Tryolabs, where I focus on designing and deploying production ML systems. I also have experience as a university professor teaching programming and conducting research on DNA storage in the Information Theory Group.
+\end{onecolentry}
 
-    \section{Experience}
+
+\section{Experience}
+
+    \begin{twocolentry}{
+        Montevideo, Uruguay
+
+    Oct 2024 -- Present
+    }
+        \textbf{Tryolabs}, Machine Learning Engineer
+        \begin{highlights}
+            \item Developed production-ready ML systems for international clients, covering end-to-end pipelines: data processing, model training, evaluation, and deployment.
+            \item Contributed to internal initiatives including onboarding, technical interviews, and knowledge-sharing sessions.
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.1 cm}
+
+    \begin{twocolentry}{
+        Montevideo, Uruguay
+
+    Feb 2023 -- Feb 2025
+    }
+        \textbf{UdelaR, School of Engineering (InCo)}, Teaching and Research Assistant
+        \begin{highlights}
+            \item Taught and coordinated programming courses with 100+ students, delivering lectures and designing labs for Programming I (imperative programming, algorithm design) and Programming II (data structures, modularization, algorithm analysis).  
+            \item Collaborated in the Information Theory Group, contributing to research on DNA storage. Assisted with theoretical analysis, theorem proofs, and the publication.
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.1 cm}
+
+    \begin{twocolentry}{
+        Montevideo, Uruguay
+
+    Feb 2024 -- Oct 2024
+    }
+        \textbf{Eagerworks}, Junior AI Developer
+        \begin{highlights}
+            \item Led backend development for Docshunter, a document management and generation platform, building a reusable API.
+            \item Authored technical blog posts and participated in technical interviews.
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.1 cm}
+
+    \begin{twocolentry}{
+        Montevideo, Uruguay
+
+    Aug 2023 -- Feb 2024
+    }
+        \textbf{Sinapsis}, Junior Developer
+        \begin{highlights}
+            \item Built web applications for risk analysis used by national and international banks.
+        \end{highlights}
+    \end{twocolentry}
+
+        \section{Education}
 
         \begin{twocolentry}{
-            Montevideo, Uruguay
-
-        Oct 2024 -- Present
-        }
-            \textbf{Tryolabs}, Machine Learning Engineer
-            \begin{highlights}
-                \item Consulting and building production ML systems; end-to-end model training, evaluation, and deployment.
-            \end{highlights}
-        \end{twocolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-            Montevideo, Uruguay
-
-        Feb 2023 -- Feb 2025
-        }
-            \textbf{UdelaR, School of Engineering (InCo)}, Teaching and Research Assistant
-            \begin{highlights}
-                \item Taught Programming 1/2; assisted research in the Information Theory Group (DNA storage).
-            \end{highlights}
-        \end{twocolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-            Montevideo, Uruguay
-
-        Feb 2024 -- Oct 2024
-        }
-            \textbf{Eagerworks}, Junior AI Developer
-            \begin{highlights}
-                \item Led backend for Docshunter, a document management and generation platform.
-            \end{highlights}
-        \end{twocolentry}
-
-    \section{Education}
-
-        \begin{threecolentry}{\textbf{B.Sc.}}{
             Mar 2019 -- Jun 2025
         }
-            \textbf{School of Engineering (UdelaR)}, Telecommunication Systems Engineering, Montevideo
-            \begin{highlights}
-                \item Specialization: Signal Processing \& Machine Learning; Thesis: Time Series Anomaly Detection with GNNs (\href{https://github.com/GraGODs/GraGOD}{GraGOD})
-            \end{highlights}
-        \end{threecolentry}
-
-        \vspace{0.1 cm}
-
-        \begin{threecolentry}{\textbf{Certificate}}{
-            Jan 2018
-        }
-            \textbf{Studio Cambridge}, Advanced English Course, Cambridge, UK
-        \end{threecolentry}
-
-    \section{Projects}
-
-        \begin{twocolentry}{
-            \href{https://github.com/GraGODs/GraGOD}{github.com/GraGODs/GraGOD}
-        }
-            \textbf{GraGOD} — Open-source framework for time-series anomaly detection with GNNs
+        \textbf{B.Sc., School of Engineering (UdelaR)}, Telecommunication Systems Engineering, Montevideo
+        \begin{highlights}
+            \item Specialization in Signal Processing and Machine Learning.
+            \item Thesis: \textit{Time Series Anomaly Detection using Graph Neural Networks}, including development of the open-source framework \href{https://github.com/GraGODs/GraGOD}{GraGOD}.
+        \end{highlights}
         \end{twocolentry}
+        
+        \vspace{0.1cm}
+        
+        \begin{twocolentry}{Jan 2018}
+\textbf{Studio Cambridge}, Cambridge, England — Advanced English Course
+\end{twocolentry}
+
+
 
     \section{Publications}
+\begin{twocolentry}{
+    Aug 2024
+}
+\textbf{The Lattice-Input Discrete-Time Poisson Channel} — IEEE ISIT, Athens, Greece\\
+Federico Bello, \'{A}lvaro Mart\'\i n, Tatiana Rischewski, Gadiel Seroussi
+\end{twocolentry}
 
-        \begin{twocolentry}{
-            Aug 2024
-        }
-            \textbf{The Lattice-Input Discrete-Time Poisson Channel} — IEEE ISIT, Athens, Greece\\
-            Federico Bello, \'{A}lvaro Mart\'\i n, Tatiana Rischewski, Gadiel Seroussi
-        \end{twocolentry}
+\section{Extra-Curricular Activities}
 
-    \section{Activities}
+\begin{twocolentry}{2021}
+\textbf{GraduaDocentes} — Volunteer teacher
+\end{twocolentry}
 
-        \begin{onecolentry}
-            \begin{highlightsforbulletentries}
-                \item Volunteer teacher, \textit{GraduaDocentes} (2021)
-                \item Volunteer, Student Charity Organization, Colegio La Mennais (2015--2018)
-            \end{highlightsforbulletentries}
-        \end{onecolentry}
+\vspace{0.1cm}
 
-    \section{Awards \& Certifications}
-
-        \begin{onecolentry}
-            \begin{highlightsforbulletentries}
-                \item Bronze medal, Uruguayan Chemistry Olympiad (best laboratory test, 2018)
-                \item Coursera courses: programming, data science, image processing (2022--Present)
-            \end{highlightsforbulletentries}
-        \end{onecolentry}
-
-    \section{Technologies}
-
-        \begin{onecolentry}
-            \textbf{ML/DS:} Python (Keras, TensorFlow, scikit-learn, Pandas, NumPy, LangChain)
-        \end{onecolentry}
-
-        \vspace{0.1 cm}
-
-        \begin{onecolentry}
-            \textbf{Systems:} C/C++, C\#, SQL, Linux; OOP; networking, databases, operating systems
-        \end{onecolentry}
-
-        \vspace{0.1 cm}
-
-        \begin{onecolentry}
-            \textbf{Languages:} Spanish (native), English (C2, 2019), German (B1 in progress)
-        \end{onecolentry}
-
-\end{document}
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
-\usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
-
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-\end{itemize}
-    \end{minipage}    
-    }
+\begin{twocolentry}{2015--2018}
+\textbf{Colegio La Mennais} — Student charity program
+\end{twocolentry}
 
 
 
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
-\begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
-
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
-
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Federico Bello} \\[7.5pt]
-\href{https://fedebello.com}{\raisebox{-0.05\height}\faGlobe\ fedebello.com} \ $|$ \ 
-\href{https://github.com/fede-bello}{\raisebox{-0.05\height}\faGithub\ fede-bello} \ $|$ \ 
-\href{https://linkedin.com/in/federico-bello-}{\raisebox{-0.05\height}\faLinkedin\ federico-bello-} \ $|$ \ 
-\href{mailto:fe.debello13@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ fe.debello13@gmail.com} \ $|$ \ 
-\href{tel:+59891658041}{\raisebox{-0.05\height}\faMobile \ +598 91 658 041} \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
-
-%Interests/ Keywords/ Summary
-\section{Summary}
-Machine Learning Engineer with 2+ years of software industry experience and 2+ years in academia. Currently at Tryolabs building and deploying production ML systems. Telecommunications Systems Engineer from UdelaR with specialization in signal processing and information theory. I've taught programming courses and conducted research on DNA storage systems in the Information Theory Group. Passionate about machine learning, applied mathematics, and creating robust end-to-end ML solutions.
-
-%Experience
-\section{Work Experience}
-
-\begin{jobshort}{Machine Learning Engineer — Tryolabs (Montevideo, Uruguay)}{Oct 2024 -- Present}
-Consulting and building production ML systems; end-to-end model training, evaluation, and deployment.
-\end{jobshort}
-
-\begin{jobshort}{Teaching and Research Assistant (InCo) — UdelaR, School of Engineering (Montevideo, Uruguay)}{Feb 2023 -- Feb 2025}
-Taught Programming 1/2; assisted research in the Information Theory Group (DNA storage).
-\end{jobshort}
-
-\begin{jobshort}{Junior AI Developer — Eagerworks (Montevideo, Uruguay)}{Feb 2024 -- Oct 2024}
-Led backend for Docshunter, a document management and generation platform.
-\end{jobshort}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}} 	
-2019 -- 2025 & B.Sc. Telecommunication Systems Engineering, \textbf{School of Engineering (UdelaR)}, Montevideo \\
-& Specialization: Signal Processing \& Machine Learning; Thesis: Time Series Anomaly Detection with GNNs (\href{https://github.com/GraGODs/GraGOD}{GraGOD}) \\
-2018 & Advanced English Course, \textbf{Studio Cambridge}, Cambridge, UK \\
-\end{tabularx}
-
-
-%----------------------------------------------------------------------------------------
-%	LANGUAGES
-%----------------------------------------------------------------------------------------
 \section{Languages}
-Spanish (native), English (C2, 2019), German (B1 in progress)
 
+\begin{onecolentry}
+\begin{highlightsforbulletentries}
+    \item \textbf{Spanish} — Native
+    \item \textbf{English} — C2 Proficiency
+    \item \textbf{German} — B1 (Goethe Institute, 2022--Present)
+\end{highlightsforbulletentries}
+\end{onecolentry}
+
+   
 
 \end{document}
