@@ -145,21 +145,10 @@
 } % new environment for three column entries
 
 \newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.15}
 }{
     \par\kern\topsep
 } % new environment for the header
-
-\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-    ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{Last updated in September 2025}\hspace{\widthof{Last updated in September 2025}}
-    }}}%
-  }%
-}%
 
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
@@ -176,34 +165,33 @@
     \newsavebox\ANDbox
     \sbox\ANDbox{}
 
-    \placelastupdatedtext
     \begin{header}
         \fontsize{30 pt}{30 pt}
         \textbf{Federico Bello}
 
         \vspace{0.3 cm}
 
-        \normalsize
+        \small
         \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Montevideo, Uruguay}%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \AND%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{mailto:fe.debello13@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}fe.debello13@gmail.com}}%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \AND%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{tel:+59891658041}{{\footnotesize\faPhone*}\hspace*{0.13cm}+598 91 658 041}}%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \AND%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{https://fedebello.com/}{{\footnotesize\faLink}\hspace*{0.13cm}fedebello.com}}%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \AND%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{https://linkedin.com/in/federico-bello-}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}federico-bello-}}%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \AND%
-        \kern 0.25 cm%
+        \kern 0.15 cm%
         \mbox{\hrefWithoutArrow{https://github.com/fede-bello}{{\footnotesize\faGithub}\hspace*{0.13cm}fede-bello}}%
     \end{header}
 
@@ -212,7 +200,7 @@
 
     \section{Summary}
         \begin{onecolentry}
-            ML Engineer at Tryolabs building and deploying production ML systems. Telecommunications Systems Engineer (UdelaR) focused on signal processing and information theory; experience teaching programming and researching DNA storage.
+            Machine Learning Engineer at Tryolabs focused on building and deploying production ML systems. Telecommunications Systems Engineer (UdelaR) specialized in signal processing and information theory, with experience teaching programming and researching DNA storage in the Information Theory Group. I enjoy creating practical, reliable end-to-end ML solutions, drawing on strong foundations in signal processing, data modeling, and backend development.
         \end{onecolentry}
 
     \section{Experience}
@@ -272,6 +260,41 @@
         }
             \textbf{Studio Cambridge}, Advanced English Course, Cambridge, UK
         \end{threecolentry}
+
+    \section{Projects}
+
+        \begin{twocolentry}{
+            \href{https://github.com/GraGODs/GraGOD}{github.com/GraGODs/GraGOD}
+        }
+            \textbf{GraGOD} — Open-source framework for time-series anomaly detection with GNNs
+        \end{twocolentry}
+
+    \section{Publications}
+
+        \begin{twocolentry}{
+            Aug 2024
+        }
+            \textbf{The Lattice-Input Discrete-Time Poisson Channel} — IEEE ISIT, Athens, Greece\\
+            Federico Bello, \'{A}lvaro Mart\'\i n, Tatiana Rischewski, Gadiel Seroussi
+        \end{twocolentry}
+
+    \section{Activities}
+
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item Volunteer teacher, \textit{GraduaDocentes} (2021)
+                \item Volunteer, Student Charity Organization, Colegio La Mennais (2015--2018)
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
+
+    \section{Awards \& Certifications}
+
+        \begin{onecolentry}
+            \begin{highlightsforbulletentries}
+                \item Bronze medal, Uruguayan Chemistry Olympiad (best laboratory test, 2018)
+                \item Coursera courses: programming, data science, image processing (2022--Present)
+            \end{highlightsforbulletentries}
+        \end{onecolentry}
 
     \section{Technologies}
 
