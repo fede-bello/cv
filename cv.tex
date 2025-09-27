@@ -28,7 +28,6 @@
 \usepackage[pscoord]{eso-pic} % for floating text on the page
 \usepackage{calc} % for calculating lengths
 \usepackage{bookmark} % for bookmarks
-\usepackage{lastpage} % for getting the total number of pages
 \usepackage{changepage} % for one column entries (adjustwidth environment)
 \usepackage{paracol} % for two and three column entries
 \usepackage{ifthen} % for conditional statements
@@ -54,9 +53,7 @@
 \setlength{\topskip}{0pt} % no top skip
 \setlength{\columnsep}{0.15cm} % set column seperation
 \makeatletter
-\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
-\makeatother
-\pagestyle{customFooterStyle}
+
 
 \titleformat{\section}{
     % avoid page braking right after the section title
