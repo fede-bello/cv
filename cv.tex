@@ -1,40 +1,21 @@
 \documentclass[10pt, letterpaper]{article}
 
-% Packages:
 \usepackage[
-    ignoreheadfoot, % set margins without considering header and footer
-    top=1.2 cm, % seperation between body and page edge from the top
-    bottom=2 cm, % seperation between body and page edge from the bottom
-    left=1.8 cm, % seperation between body and page edge from the left
-    right=1.8 cm, % seperation between body and page edge from the right
-    footskip=1.0 cm, % seperation between body and footer
-    % showframe % for debugging 
-]{geometry} % for adjusting page geometry
-\usepackage[explicit]{titlesec} % for customizing section titles
-\usepackage{tabularx} % for making tables with fixed width columns
-\usepackage{array} % tabularx requires this
-\usepackage[dvipsnames]{xcolor} % for coloring text
-\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
-\usepackage{enumitem} % for customizing lists
-\usepackage{fontawesome5} % for using icons
-\usepackage{amsmath} % for math
-\usepackage[
-    pdftitle={Federico Bello's CV},
-    pdfauthor={Federico Bello},
-    pdfcreator={LaTeX with RenderCV},
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref} % for links, metadata and bookmarks
-\usepackage[pscoord]{eso-pic} % for floating text on the page
-\usepackage{calc} % for calculating lengths
-\usepackage{bookmark} % for bookmarks
-\usepackage{changepage} % for one column entries (adjustwidth environment)
-\usepackage{paracol} % for two and three column entries
-\usepackage{ifthen} % for conditional statements
-\usepackage{needspace} % for avoiding page brake right after the section title
-\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+    ignoreheadfoot,
+    top=1.3 cm,
+    bottom=1.3 cm,
+    left=1.7 cm,
+    right=1.7 cm,
+]{geometry}
 
-% Ensure that generate pdf is machine readable/ATS parsable:
+\usepackage[explicit]{titlesec}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0,79,144}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{needspace}
+\usepackage{iftex}
+
 \ifPDFTeX
     \input{glyphtounicode}
     \pdfgentounicode=1
@@ -43,266 +24,118 @@
     \usepackage{lmodern}
 \fi
 
-\usepackage[default, type1]{sourcesanspro} 
+\usepackage[default,type1]{sourcesanspro}
 
-% Some settings:
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
-\pagestyle{empty} % no header or footer
-\setcounter{secnumdepth}{0} % no section numbering
-\setlength{\parindent}{0pt} % no indentation
-\setlength{\topskip}{0pt} % no top skip
-\setlength{\columnsep}{0.15cm} % set column seperation
-\makeatletter
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
 
+\titleformat{\section}
+{\needspace{4\baselineskip}\large\color{primaryColor}}
+{}
+{}
+{\textbf{#1}\titlerule[0.8pt]}
 
-\titleformat{\section}{
-    % avoid page braking right after the section title
-    \needspace{4\baselineskip}
-    % make the font size of the section title large and color it with the primary color
-    \Large\color{primaryColor}
-}{
-}{
-}{
-    % print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
-    % from the end of the title to the end of the body
-    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
-}[] % section title formatting
+\titlespacing{\section}{0pt}{0.28cm}{0.16cm}
 
-\titlespacing{\section}{
-    % left space:
-    -1pt
-}{
-    % top space:
-    0.3 cm
-}{
-    % bottom space:
-    0.2 cm
-} % section title spacing
-
-% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
 \newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0.4 cm + 10pt
-    ]
+\begin{itemize}[topsep=0.06cm,itemsep=0pt,parsep=0pt,leftmargin=0.5cm]
 }{
-    \end{itemize}
-} % new environment for highlights
-
-\newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-}{
-    \end{itemize}
-} % new environment for highlights for bullet entries
-
-
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0.2 cm + 0.00001 cm
-    }{
-        0.2 cm + 0.00001 cm
-    }
-}{
-    \end{adjustwidth}
-} % new environment for one column entries
-
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for two column entries
-
-\newenvironment{threecolentry}[3][]{
-    \onecolentry
-    \def\thirdColumn{#3}
-    \setcolumnwidth{1 cm, \fill, 4.5 cm}
-    \begin{paracol}{3}
-    {\raggedright #2} \switchcolumn
-}{
-    \switchcolumn \raggedleft \thirdColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for three column entries
-
-\newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.15}
-}{
-    \par\kern\topsep
-} % new environment for the header
-
-% save the original href command in a new command:
-\let\hrefWithoutArrow\href
-
-% new command for external links:
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
-
+\end{itemize}
+}
 
 \begin{document}
-    \newcommand{\AND}{\unskip
-        \cleaders\copy\ANDbox\hskip\wd\ANDbox
-        \ignorespaces
-    }
-    \newsavebox\ANDbox
-    \sbox\ANDbox{}
 
-    \begin{header}
-        \fontsize{30 pt}{30 pt}
-        \textbf{Federico Bello}
+\begin{center}
+{\fontsize{22pt}{22pt}\textbf{Federico Bello}} \\[3pt]
+\small
+Montevideo, Uruguay \quad
++598 91 658 041 \quad
+fe.debello13@gmail.com \quad
+\href{https://fedebello.com}{fedebello.com} \quad
+\href{https://linkedin.com/in/federico-bello-}{LinkedIn} \quad
+\href{https://github.com/fede-bello}{GitHub}
+\end{center}
 
-        \vspace{0.3 cm}
-
-        \small
-        \mbox{\hrefWithoutArrow{mailto:fe.debello13@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}fe.debello13@gmail.com}}%
-        \kern 0.2 cm%
-        \AND%
-        \kern 0.2 cm%
-        \mbox{\hrefWithoutArrow{tel:+59891658041}{{\footnotesize\faPhone*}\hspace*{0.13cm}+598 91 658 041}}%
-        \kern 0.2 cm%
-        \AND%
-        \kern 0.2 cm%
-        \mbox{\hrefWithoutArrow{https://fedebello.com/}{{\footnotesize\faLink}\hspace*{0.13cm}fedebello.com}}%
-        \kern 0.2 cm%
-        \AND%
-        \kern 0.2 cm%
-        \mbox{\hrefWithoutArrow{https://linkedin.com/in/federico-bello-}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}federico-bello-}}%
-        \kern 0.2 cm%
-        \AND%
-        \kern 0.2 cm%
-        \mbox{\hrefWithoutArrow{https://github.com/fede-bello}{{\footnotesize\faGithub}\hspace*{0.13cm}fede-bello}}%
-    \end{header}
-
-
-
-    \section{Summary}
-\begin{onecolentry}
-    \begin{adjustwidth}{-0.1cm}{-0.1cm}
-    I am a Telecommunications Systems Engineer (UdelaR) specialized in signal processing. I currently work as a Machine Learning Engineer at Tryolabs, designing and deploying production ML systems. I also have experience as a Teaching and Research Assistant, teaching programming and conducting research on DNA storage in the Information Theory Group.
-    \end{adjustwidth}
-\end{onecolentry}
-
-
+% =========================
 \section{Experience}
 
-    \begin{twocolentry}{
-        Montevideo, Uruguay
+\textbf{Lead Machine Learning Engineer — Tryolabs} \hfill Oct 2024 -- Present
 
-    Oct 2024 -- Present
-    }
-        \textbf{Tryolabs}, Machine Learning Engineer
-        \begin{highlights}
-            \item Developed production-ready ML systems for international clients, covering end-to-end pipelines: data processing, model training, evaluation, and deployment.
-            \item Contributed to internal initiatives including onboarding, technical interviews, and knowledge-sharing sessions.
-        \end{highlights}
-    \end{twocolentry}
+\begin{highlights}
+\item Embedded as a Forward Deployed Engineer with the LlamaIndex team, delivering document-processing solutions for major enterprise clients (BP, EY, Guidehouse) and driving adoption of the LlamaCloud platform.
+\item Technical Lead for Geosphere (UNICEF), an open-source initiative designing advanced agents with the Model Context Protocol (MCP). Recognized by IRCAI (UNESCO) as one of the Top 100 AI projects globally.
+\item Define engineering standards for AI system design and deployment, establishing robust CI/CD patterns and translating complex methodologies into production-ready software.
+\item Mentor the engineering team, lead technical hiring and onboarding, and represent the company through public talks and internal workshops.
+\end{highlights}
 
-    \vspace{0.1 cm}
+\vspace{0.14cm}
 
-    \begin{twocolentry}{
-        Montevideo, Uruguay
+\textbf{Teaching and Research Assistant — School of Engineering, UdelaR} \hfill Feb 2023 -- Feb 2025
+\begin{highlights}
+\item Delivered lectures and labs for Programming I and II (1000+ students), focusing on algorithm design, data structures, and computational complexity.
+\item Conducted research within the Information Theory Group on DNA storage channels, contributing to theoretical derivations and proofs, and co-authoring peer-reviewed publications.
+\end{highlights}
 
-    Feb 2023 -- Feb 2025
-    }
-        \textbf{UdelaR, School of Engineering (InCo)}, Teaching and Research Assistant
-        \begin{highlights}
-            \item Taught and coordinated programming courses with 100+ students, delivering lectures and designing labs for Programming I (imperative programming, algorithm design) and Programming II (data structures, modularization, algorithm analysis).  
-            \item Collaborated in the Information Theory Group, contributing to research on DNA storage. Assisted with theoretical analysis, theorem proofs, and the publication.
-        \end{highlights}
-    \end{twocolentry}
+\vspace{0.14cm}
 
-    \vspace{0.1 cm}
+\textbf{AI Developer — Eagerworks} \hfill Feb 2024 -- Oct 2024
+\begin{highlights}
+\item Led backend development of \textit{Docshunter}, an AI-powered document management and generation platform built on LLM pipelines (LangChain).
+\end{highlights}
 
-    \begin{twocolentry}{
-        Montevideo, Uruguay
+\vspace{0.14cm}
 
-    Feb 2024 -- Oct 2024
-    }
-        \textbf{Eagerworks}, Junior AI Developer
-        \begin{highlights}
-            \item Led backend development for Docshunter, a document management and generation platform, building a reusable API.
-            \item Authored technical blog posts and participated in technical interviews.
-        \end{highlights}
-    \end{twocolentry}
+\textbf{Junior Developer — Sinapsis} \hfill Aug 2023 -- Feb 2024
+\begin{highlights}
+\item Developed risk analysis web applications for financial institutions using .NET technologies.
+\end{highlights}
 
-    \vspace{0.1 cm}
+% =========================
+\section{Projects}
 
-    \begin{twocolentry}{
-        Montevideo, Uruguay
+\textbf{Rupta} — Co-founder \& Technical Lead \hfill Mar 2026 -- Present
+\begin{highlights}
+\item Cross-platform social app (React Native + web) that gamifies real-world experiences: users complete missions, earn points, and compete across feeds and rankings. Own full-stack architecture; launching on iOS and Android. \href{https://rupta.app}{rupta.app}
+\end{highlights}
 
-    Aug 2023 -- Feb 2024
-    }
-        \textbf{Sinapsis}, Junior Developer
-        \begin{highlights}
-            \item Built web applications for risk analysis used by national and international banks.
-        \end{highlights}
-    \end{twocolentry}
+\vspace{0.14cm}
 
-        \section{Education}
+\textbf{The Hawk Eye Football} — Co-founder \& AI Specialist \hfill Dec 2025 -- Present
+\begin{highlights}
+\item Early-stage sports-intelligence platform for professional football clubs; leading ML and system architecture. \href{https://thehawkeyefootball.com}{thehawkeyefootball.com}
+\end{highlights}
 
-        \begin{twocolentry}{
-            Mar 2019 -- Jun 2025
-        }
-        \textbf{B.Sc., School of Engineering (UdelaR)}, Telecommunication Systems Engineering, Montevideo
-        \begin{highlights}
-            \item Specialization in Signal Processing and Machine Learning.
-            \item Thesis: \textit{Time Series Anomaly Detection using Graph Neural Networks}, including development of the open-source framework \href{https://github.com/GraGODs/GraGOD}{GraGOD}.
-        \end{highlights}
-        \end{twocolentry}
-        
-        \vspace{0.1cm}
-        
-        \begin{twocolentry}{Jan 2018}
-\textbf{Studio Cambridge}, Cambridge, England — Advanced English Course
-\end{twocolentry}
+% =========================
+\section{Education}
 
+\textbf{B.Sc. in Telecommunication Systems Engineering} \hfill Mar 2019 -- Jun 2025 \\
+University of the Republic (UdelaR), Montevideo, Uruguay
 
+\begin{highlights}
+\item Graduated top 3 of the class; specialization in Machine Learning and Statistical Signal Processing.
+\item Thesis: \textit{Time Series Anomaly Detection with Graph Neural Networks} — a GNN-based framework for multivariate anomaly detection, evaluating graph construction and benchmark biases. Awarded Best Engineering Project and First Place Thesis Prize by the National Academy of Engineering (Uruguay).
+\item Author and maintainer of \href{https://github.com/GraGODs/GraGOD}{GraGOD}, an open-source framework optimizing GNN architectures for high-dimensional time series.
+\end{highlights}
 
-    \section{Publications}
-\begin{twocolentry}{
-    Aug 2024
-}
-\textbf{The Lattice-Input Discrete-Time Poisson Channel} — IEEE ISIT, Athens, Greece\\
-Federico Bello, \'{A}lvaro Mart\'\i n, Tatiana Rischewski, Gadiel Seroussi
-\end{twocolentry}
+% =========================
+\section{Publications}
 
-\section{Extra-Curricular Activities}
+\textbf{GNNs for Time Series Anomaly Detection: An Open-Source Framework and a Critical Evaluation} \hfill Mar 2026 \\
+Int. Conference on Pattern Recognition Applications and Methods (ICPRAM 2026), Marbella, Spain
 
-\begin{twocolentry}{2021}
-\textbf{GraduaDocentes} — Volunteer teacher
-\end{twocolentry}
+\vspace{0.12cm}
 
-\vspace{0.1cm}
+\textbf{The Lattice-Input Discrete-Time Poisson Channel} \hfill Aug 2024 \\
+IEEE International Symposium on Information Theory (ISIT), Athens, Greece
 
-\begin{twocolentry}{2015--2018}
-\textbf{Colegio La Mennais} — Student charity program
-\end{twocolentry}
+% =========================
+\section{Technical Skills}
 
-
-
-
-\section{Languages}
-
-\begin{onecolentry}
-\begin{highlightsforbulletentries}
-    \item \textbf{Spanish} — Native
-    \item \textbf{English} — C2 Proficiency
-    \item \textbf{German} — B1 (Goethe Institute, 2022--Present)
-\end{highlightsforbulletentries}
-\end{onecolentry}
-
-   
+\textbf{Programming:} Python, C++, C\#, SQL \\
+\textbf{Machine Learning:} Graph Neural Networks (GNNs), Agentic Workflows, LlamaIndex, LangChain, PyTorch, TensorFlow, Scikit-learn, Langfuse \\
+\textbf{Cloud \& Infrastructure:} GCP (Professional ML Engineer, \href{https://www.credly.com/badges/ed72d036-9d20-4cc5-b7ad-ccc792c15a64/public_url}{certified}), AWS, Docker \\
+\textbf{Mathematics:} Probability, Linear Algebra, Optimization, Information Theory \\
+\textbf{Languages:} Spanish (Native), English (C2 Proficiency, CPE), German (B1, Goethe)
 
 \end{document}
