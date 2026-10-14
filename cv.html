@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Federico Bello, CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 11mm 14mm 10mm 14mm; }
+  :root { --blue: #1f5fa8; --ink: #1d1d1f; --muted: #555; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif; font-size: 9.6pt; line-height: 1.34; color: var(--ink); background: #fff; }
+  a { color: inherit; text-decoration: none; }
+  a.l { color: var(--blue); }
+  header { text-align: center; margin-bottom: 6pt; }
+  h1 { font-size: 22pt; margin: 0 0 2pt; font-weight: 700; letter-spacing: 0.2pt; }
+  .tag { font-size: 10.3pt; font-weight: 500; margin-bottom: 1pt; }
+  .tag2 { font-size: 9.6pt; margin-bottom: 3pt; }
+  .contact { font-size: 8.9pt; color: var(--muted); }
+  .contact span + span::before { content: "·"; margin: 0 6pt; color: #999; }
+  .avail { margin-top: 3pt; font-size: 9.2pt; font-weight: 500; color: var(--blue); }
+  h2 { color: var(--blue); font-size: 11.5pt; margin: 10pt 0 4pt; padding-bottom: 1pt; border-bottom: 1.2pt solid var(--blue); font-weight: 700; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .row .t { font-weight: 700; }
+  .row .d { white-space: nowrap; font-size: 9.2pt; color: var(--ink); }
+  .sub { color: var(--muted); margin-bottom: 1pt; }
+  .sub b { color: var(--ink); font-weight: 500; }
+  .item { margin-bottom: 6pt; }
+  ul { margin: 1.5pt 0 0; padding-left: 13pt; }
+  li { margin-bottom: 1.5pt; }
+  .skills p { margin: 0 0 2pt; }
+  .skills b { font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Federico Bello</h1>
+  <div class="tag">M2 MVA, ENS Paris-Saclay &nbsp;|&nbsp; Sophie Germain Scholar &nbsp;|&nbsp; 3 years as an ML engineer</div>
+  <div class="contact">
+    <span>Paris, France</span><span>+33 6 88 80 61 55</span><span><a href="mailto:fe.debello13@gmail.com">fe.debello13@gmail.com</a></span><span><a class="l" href="https://fedebello.com">fedebello.com</a></span><span><a class="l" href="https://scholar.google.com/citations?hl=en&user=l0gxO28AAAAJ">Google Scholar</a></span><span><a class="l" href="https://www.linkedin.com/in/federico-bello-/">LinkedIn</a></span><span><a class="l" href="https://github.com/fede-bello">GitHub</a></span>
+  </div>
+  <div class="avail">Available for a 4 to 6 month research internship starting April or May 2027</div>
+</header>
+
+<h2>Education</h2>
+<div class="item">
+  <div class="row"><span class="t">M.Sc. Mathematics, Vision, Learning (MVA), École Normale Supérieure Paris-Saclay</span><span class="d">Sep 2026 – Sep 2027</span></div>
+  <ul>
+    <li>Sophie Germain Excellence Scholarship, Fondation Mathématique Jacques Hadamard.</li>
+    <li>Coursework: Object Recognition and Computer Vision, Foundations of Large Language Models, Geometric Deep Learning, Optimal Transport, Robotics.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="t">B.Sc. Telecommunication Systems Engineering, University of the Republic (UdelaR), Uruguay</span><span class="d">Mar 2019 – Jun 2025</span></div>
+  <ul>
+    <li>Graduated top 3 of the class; specialization in Machine Learning and Statistical Signal Processing.</li>
+    <li>Thesis on anomaly detection with graph neural networks: Best Engineering Project and First Place Thesis Prize, National Academy of Engineering (Uruguay). Published at ICPRAM 2026.</li>
+  </ul>
+</div>
+
+<h2>Publications</h2>
+<div class="item">
+  <div class="row"><span class="t">GNNs for Time Series Anomaly Detection: An Open-Source Framework and a Critical Evaluation</span><span class="d">2026</span></div>
+  <div class="sub"><b>ICPRAM 2026</b>, Int. Conference on Pattern Recognition Applications and Methods, Marbella, Spain &nbsp;·&nbsp; Code: <a class="l" href="https://github.com/GraGODs/GraGOD">GraGOD</a></div>
+  <ul><li>Shows that much of the reported progress in GNN-based time series anomaly detection comes from how the datasets were built and from the evaluation metrics, not from the models. GraGOD is open source.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><span class="t">The Lattice-Input Discrete-Time Poisson Channel</span><span class="d">2024</span></div>
+  <div class="sub"><b>IEEE ISIT 2024</b>, International Symposium on Information Theory, Athens, Greece</div>
+  <ul><li>Capacity analysis of the discrete-time Poisson channel under lattice input constraints, a model for DNA-based data storage.</li></ul>
+</div>
+
+<h2>Research Experience</h2>
+<div class="item">
+  <div class="row"><span class="t">Research and Teaching Assistant, Information Theory Group, School of Engineering, UdelaR</span><span class="d">Feb 2023 – Feb 2025</span></div>
+  <ul>
+    <li>Research on DNA storage channels: theoretical derivations and proofs, leading to the ISIT 2024 paper.</li>
+    <li>Lectures and labs for Programming I and II (1000+ students): algorithm design, data structures, complexity.</li>
+  </ul>
+</div>
+
+<h2>Industry Experience</h2>
+<div class="item">
+  <div class="row"><span class="t">Lead Machine Learning Engineer, Tryolabs</span><span class="d">Oct 2024 – Sep 2026</span></div>
+  <ul>
+    <li>Technical lead of <b>Geosphere (UNICEF)</b>, an open-source agent system built on the Model Context Protocol, named by IRCAI (UNESCO) among the Top 100 AI projects globally.</li>
+    <li>Forward Deployed Engineer embedded with the <b>LlamaIndex</b> team, taking document-processing systems from prototype to production for enterprise clients (BP, EY, Guidehouse).</li>
+    <li>Mentored engineers, led technical hiring, and defined standards for AI system design and deployment.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span class="t">AI Developer, Eagerworks</span><span class="d">Feb 2024 – Oct 2024</span></div>
+  <ul><li>Led backend development of Docshunter, an AI-powered document management and generation platform built on LLM pipelines.</li></ul>
+</div>
+
+<h2>Projects</h2>
+<div class="item">
+  <div class="row"><span class="t">Rupta, Co-founder and Technical Lead</span><span class="d">Mar 2026 – Present</span></div>
+  <ul><li>Cross-platform social app (React Native + web) that gamifies real-world experiences. Own the full-stack architecture; launching on iOS and Android. <a class="l" href="https://rupta.app">rupta.app</a></li></ul>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Programming:</b> Python, C++, SQL, Docker, GCP (Professional ML Engineer, certified)</p>
+  <p><b>Machine Learning:</b> PyTorch, GNNs, Scikit-learn, TensorFlow, agentic workflows, LlamaIndex, LangChain</p>
+  <p><b>Mathematics:</b> Probability, Linear Algebra, Optimization, Information Theory</p>
+  <p><b>Languages:</b> Spanish (native), English (C2, Cambridge CPE), French (A2), German (A2)</p>
+</div>
+</body>
+</html>
